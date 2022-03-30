@@ -16,7 +16,12 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'index.html') // 使用lodash.template
     })
-  ]
+  ],
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src')
+    }
+  }
 }
 // console.log(path.resolve(__dirname, 'index.js'))
 // console.log(path.join('/foo', 'bar', 'baz/asdf', 'quux', ''))
