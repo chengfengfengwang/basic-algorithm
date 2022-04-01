@@ -5,4 +5,5 @@
 // import '@/实现JSONSTRINGFY.js'
 // import '@/发布订阅.js'
 // import '@/深拷贝.js'
-//import '@/promise1.js' // todo
+// import '@/promise1.js' // todo
+// todo: 摇骰子选出2个胜者
