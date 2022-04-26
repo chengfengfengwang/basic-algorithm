@@ -11,4 +11,4 @@
 // import '@/芒果经销商.js' // 广度优先搜索
 // 广度优先遍历dom // todo
 // import '@/选择排序.js'
-import '@/大O表示法/index.js'
+import '@/图/index.js'
