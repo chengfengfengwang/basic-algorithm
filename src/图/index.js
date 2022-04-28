@@ -45,25 +45,42 @@ graph.addEdge('c', 'g');
 // console.log(graph)
 
 function dfs(graph) {
-    const vertices = graph.vertices;
-    const adjList = graph.adjList;
+    const { vertices, adjList } = graph;
     const visited = [];
-    for (const v of vertices) {
-        visit(v)
-    }
-    // visit('a')
+    visit(vertices[0]);
     function visit(v) {
         if (visited.includes(v)) {
             return
         }
         console.log(`visit ${v}`);
         visited.push(v);
-        const neighbors = adjList[v];
-        for (const nv of neighbors) {
-            if (!visited.includes(nv)) {
-                visit(nv)
-            }
+        for (const nv of adjList[v]) {
+            visit(nv)
         }
     }
 }
-dfs(graph)
+
+function dfs1(graph) {
+    const { vertices, adjList } = graph;
+    let stack = [];
+    stack.push(vertices[0]);
+    while (stack.length) {
+        const item = stack.pop();
+        console.log(`visit ${item}`)
+        const children = adjList[item];
+        if (Array.isArray(children) && children.length) {
+            stack.push(...children.reverse())
+        }
+    }
+}
+function dfs2(graph) {
+    const {vertices, adjList} = graph;
+    visit(vertices[0]);
+    function visit(v) {
+        console.log('visit ' + v);
+        for (const nv of adjList[v]) {
+            visit(nv)
+        }
+    }
+}
+dfs2(graph)
