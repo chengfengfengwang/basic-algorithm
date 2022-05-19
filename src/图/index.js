@@ -36,5 +36,51 @@ const graph = new Graph(true);
 graph.addEdge('a', 'b');
 graph.addEdge('a', 'c');
 graph.addEdge('a', 'd');
-graph.toString();
-console.log(graph)
+graph.addEdge('b', 'e');
+graph.addEdge('b', 'f');
+graph.addEdge('c', 'g');
+
+
+// graph.toString();
+// console.log(graph)
+
+function dfs(graph) {
+    const { vertices, adjList } = graph;
+    const visited = [];
+    visit(vertices[0]);
+    function visit(v) {
+        if (visited.includes(v)) {
+            return
+        }
+        console.log(`visit ${v}`);
+        visited.push(v);
+        for (const nv of adjList[v]) {
+            visit(nv)
+        }
+    }
+}
+
+function dfs1(graph) {
+    const { vertices, adjList } = graph;
+    let stack = [];
+    stack.push(vertices[0]);
+    while (stack.length) {
+        const item = stack.pop();
+        console.log(`visit ${item}`)
+        const children = adjList[item];
+        if (Array.isArray(children) && children.length) {
+            stack.push(...children.reverse())
+        }
+    }
+}
+function dfs2(graph) {
+    const {vertices, adjList} = graph;
+    visit(vertices[0]);
+    function visit(v) {
+        console.log('visit ' + v);
+        for (const nv of adjList[v]) {
+            visit(nv)
+        }
+    }
+}
+dfs2(graph)
