@@ -20,7 +20,9 @@
 // import '@/leetcode/657.机器人能否返回原点/index.js'
 // import '@/leetcode/1904.你完成的完整对局数/index.js'
 // import '@/leetcode/912.排序数组/冒泡排序.js'
-import '@/leetcode/912.排序数组/选择排序.js'
+// import '@/leetcode/912.排序数组/选择排序.js'
+import '@/leetcode/278.第一个错误的版本/index.js'
+
 
 
 
